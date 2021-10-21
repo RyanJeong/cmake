@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 3.11)
 
 project(
-  Tutorial-7
+  CMAKE_TEMPLATE
   VERSION     0.1
-  DESCRIPTION "튜토리얼 #7"
+  DESCRIPTION "Cmake template"
   LANGUAGES   CXX)
 
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/lib)
