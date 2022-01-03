@@ -83,6 +83,62 @@ CMake tutorials
         * `GIT_TAG`: 설치할 외부 라이브러리의 tag
     * `FetchContent_MakeAvailable`는 외부 라이브러리를 사용할 수 있게 함
     * `FetchContent`를 통해 가져온 외부 라이브러리는 프로젝트 전체에서 사용 가능
+* Locations:
+> CMAKE_BINARY_DIR : if you are building in-source, this is the same
+as CMAKE_SOURCE_DIR, otherwise this is the top level directory of
+your build tree
+
+> CMAKE_COMMAND : this is the complete path of the cmake which runs
+currently (e.g. /usr/local/bin/cmake). Note that if you have
+custom commands that invoke cmake -E, it is very important to
+use CMAKE_COMMAND as the CMake executable, because CMake might not
+be on the system PATH.
+
+> CMAKE_CURRENT_BINARY_DIR : if you are building in-source, this is
+the same as CMAKE_CURRENT_SOURCE_DIR, otherwise this is the
+directory where the compiled or generated files from the current
+CMakeLists.txt will go to.
+
+> CMAKE_CURRENT_SOURCE_DIR : this is the directory where the
+currently processed CMakeLists.txt is located in
+
+> CMAKE_CURRENT_LIST_FILE : this is the full path to the listfile
+currently being processed.
+
+> CMAKE_CURRENT_LIST_DIR : (since 2.8.3) this is the directory
+of the listfile currently being processed.
+
+> CMAKE_CURRENT_LIST_LINE : this is linenumber where the variable
+is used.
+
+> CMAKE_FILES_DIRECTORY : the directory within the current binary
+directory that contains all the CMake generated files. Typically
+evaluates to "/CMakeFiles". Note the leading slash for the
+directory. Typically used with the current binary directory, i.e.
+${CMAKE_CURRENT_BINARY_DIR}${CMAKE_FILES_DIRECTORY}
+
+> CMAKE_MODULE_PATH : tell CMake to search first in directories
+listed in CMAKE_MODULE_PATH when you use FIND_PACKAGE() or
+INCLUDE()
+SET(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/MyCMakeScripts)
+FIND_PACKAGE(HelloWorld)
+
+> CMAKE_ROOT : this is the CMake installation directory
+
+> CMAKE_SOURCE_DIR : this is the directory which contains the
+top-level CMakeLists.txt, i.e. the top level source directory
+
+> PROJECT_NAME : the name of the project set by PROJECT() command.
+
+> CMAKE_PROJECT_NAME : the name of the first project set by the
+PROJECT() command, i.e. the top level project.
+
+> PROJECT_BINARY_DIR : contains the full path to the top level
+directory of your build tree
+
+> PROJECT_SOURCE_DIR : contains the full path to the root of your
+project source directory, i.e. to the nearest directory where
+CMakeLists.txt contains the PROJECT() command
 
 ## Index
 * [실행파일 만들기](./1)
